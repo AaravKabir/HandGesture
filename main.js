@@ -1,5 +1,4 @@
 prediction1 = "";
-prediction2 = "";
 
 Webcam.set({
     width: 350,
@@ -16,7 +15,7 @@ function takeSnapshot(){
     });
 }
 console.log("Ml5 version: ", ml5.version);
-classifier = ml5.imageClassifier("https://teachablemachine.withgoogle.com/models/Sv8aAtRjJ/.json"), modelLoaded;
+classifier = ml5.imageClassifier("https://teachablemachine.withgoogle.com/models/Sv8aAtRjJ/model.json",modelLoaded);
 function modelLoaded(){
     console.log("Model has been loaded");
 }
@@ -37,13 +36,13 @@ function gotResult(error,results){
         console.log(results);
         document.getElementById("result_emotion_name_1").innerHTML = results[0].label;
         prediction1 = results[0].label;
-        speak();
         if(results[0].label == "Victory")
-        {document.getElementById("update_emoji_1").innerHTML = "&#128522;";
+        {document.getElementById("update_emoji_1").innerHTML = "&#9996;";
     }
-    if(results[0].label == "Awsome")
-        {document.getElementById("update_emoji_1").innerHTML = "&#128546;";
+    if(results[0].label == "Amazing")
+        {document.getElementById("update_emoji_1").innerHTML = "&#128076;";
     }
-    if(results[0].label == "Thumbs Up")
-        {document.getElementById("update_emoji_1").innerHTML = "&#128545;";
-    }}}
+    if(results[0].label == "Best")
+        {document.getElementById("update_emoji_1").innerHTML = "&#128077;";
+    }
+    speak();}}
